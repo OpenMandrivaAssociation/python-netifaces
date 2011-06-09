@@ -3,7 +3,7 @@
 Name:          python-%module
 Version:       0.5
 Release:       %mkrel 1
-Provides:      %{netifaces}
+Provides:      %{module}
 Requires:      python
 BuildRequires: gcc
 BuildRequires: python-devel
