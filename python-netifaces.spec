@@ -1,9 +1,9 @@
 %define module netifaces
 
 Name:          python-%module
-Version:       0.5
-Release:       %mkrel 1
-Provides:      %{module}
+Version:       0.6
+Release:       1
+Provides:      %{module} = %{version}
 Requires:      python
 BuildRequires: gcc
 BuildRequires: python-devel
@@ -12,8 +12,7 @@ Group:         Development/Python
 License:       MIT
 URL:           http://alastairs-place.net/netifaces/
 Summary:       Portable network interface information
-Source:        %{module}-%{version}.tar.bz2
-BuildRoot:     %{_tmppath}/%{name}-%{version}-%{release}-root
+Source:        %{module}-%{version}.tar.gz
 
 %description
 netifaces provides a (hopefully portable-ish) way for Python programmers to
@@ -38,11 +37,6 @@ CFLAGS="%{optflags}" python setup.py build
 rm -rf $RPM_BUILD_ROOT
 %{__python} setup.py install --root $RPM_BUILD_ROOT --install-purelib=%{python_sitearch}
 
-%clean
-rm -rf %{buildroot}
-
 %files
-%defattr(-,root,root)
 %doc README
 %{python_sitearch}/*
-
