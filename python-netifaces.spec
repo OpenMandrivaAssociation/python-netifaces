@@ -40,3 +40,15 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %doc README
 %{python_sitearch}/*
+
+
+%changelog
+* Fri Nov 18 2011 Alexander Khrukin <akhrukin@mandriva.org> 0.6-1
++ Revision: 731515
+- fix for new packaging policy and version bump
+
+* Thu Jun 09 2011 Antoine Ginies <aginies@mandriva.com> 0.5-1
++ Revision: 683340
+- fix provides
+- import python-netifaces
+
