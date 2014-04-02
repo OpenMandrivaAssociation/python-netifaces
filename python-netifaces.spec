@@ -1,7 +1,7 @@
 %define module netifaces
 
 Name:          python-%module
-Version:       0.6
+Version:       0.8
 Release:       1
 Provides:      %{module} = %{version}
 Requires:      python
@@ -12,7 +12,8 @@ Group:         Development/Python
 License:       MIT
 URL:           http://alastairs-place.net/netifaces/
 Summary:       Portable network interface information
-Source:        %{module}-%{version}.tar.gz
+
+Source:        http://alastairs-place.net/projects/netifaces/netifaces-%{version}.tar.gz
 
 %description
 netifaces provides a (hopefully portable-ish) way for Python programmers to
@@ -34,12 +35,11 @@ provided by the socket options is normally less complete.
 CFLAGS="%{optflags}" python setup.py build
 
 %install
-rm -rf $RPM_BUILD_ROOT
-%{__python} setup.py install --root $RPM_BUILD_ROOT --install-purelib=%{python_sitearch}
+python setup.py install --root %{buildroot} --install-purelib=%{py_platsitedir}
 
 %files
 %doc README
-%{python_sitearch}/*
+%{py_platsitedir}/*
 
 
 %changelog
@@ -51,4 +51,5 @@ rm -rf $RPM_BUILD_ROOT
 + Revision: 683340
 - fix provides
 - import python-netifaces
+
 
