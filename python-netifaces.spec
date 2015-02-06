@@ -2,7 +2,7 @@
 
 Name:          python-%module
 Version:       0.8
-Release:       1
+Release:       2
 Provides:      %{module} = %{version}
 Requires:      python
 BuildRequires: gcc
