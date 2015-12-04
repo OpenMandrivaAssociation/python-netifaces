@@ -1,4 +1,5 @@
 removed_sources:
   netifaces-0.6.tar.gz: 5f1e696600be5627b7bd7a60d2104e57a88fe4f3
-sources:
   netifaces-0.8.tar.gz: a483338e1cb75dd572109467d523e152088c026d
+sources:
+  netifaces-0.10.4.tar.gz: c3fcd491a89c2994815053e853b005e7fc27c79a
