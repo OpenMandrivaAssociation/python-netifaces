@@ -6,9 +6,9 @@ Release:       1
 Provides:      %{module} = %{version}
 Requires:      python
 BuildRequires: gcc
-BuildRequires: python-devel
+BuildRequires: pkgconfig(python3)
 BuildRequires: python-setuptools
-BuildRequires: python2-devel
+BuildRequires: pkgconfig(python2)
 BuildRequires: python2-setuptools
 Group:         Development/Python
 License:       MIT
