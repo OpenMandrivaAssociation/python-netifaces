@@ -1,11 +1,10 @@
 %define module netifaces
 
 Name:          python-%module
-Version:       0.10.4
+Version:       0.10.9
 Release:       1
 Provides:      %{module} = %{version}
 Requires:      python
-BuildRequires: gcc
 BuildRequires: pkgconfig(python3)
 BuildRequires: python-setuptools
 BuildRequires: pkgconfig(python2)
@@ -14,8 +13,7 @@ Group:         Development/Python
 License:       MIT
 URL:           http://alastairs-place.net/netifaces/
 Summary:       Portable network interface information
-
-Source:        http://alastairs-place.net/projects/netifaces/netifaces-%{version}.tar.gz
+Source0:       https://files.pythonhosted.org/packages/0d/18/fd6e9c71a35b67a73160ec80a49da63d1eed2d2055054cc2995714949132/netifaces-%{version}.tar.gz
 
 %description
 netifaces provides a (hopefully portable-ish) way for Python programmers to
@@ -52,11 +50,16 @@ provided by the socket options is normally less complete.
 cp -a . %py2dir
 
 %build
+# -fno-lto is a workaround for setuptools brokenness -- it
+# passes -flto to the compiler but not to the linker, even if
+# it's mentioned in both CFLAGS and LDFLAGS.
+# Not too bad though since this module is only one source file
+# anyway. LTO doesn't make a difference here by definition.
 pushd %py2dir
-CFLAGS="-fno-lto" python2 setup.py build
+CFLAGS="%{optflags} -fno-lto" LDFLAGS="%{ldflags}" python2 setup.py build
 popd
 
-CFLAGS="-fno-lto" python setup.py build
+CFLAGS="%{optflags} -fno-lto" LDFLAGS="%{ldflags}" python setup.py build
 
 %install
 pushd %py2dir
@@ -72,15 +75,3 @@ python setup.py install --root %{buildroot} --install-purelib=%{py_platsitedir}
 %files -n python2-%module
 %doc README.rst
 %{py2_platsitedir}/*
-
-%changelog
-* Fri Nov 18 2011 Alexander Khrukin <akhrukin@mandriva.org> 0.6-1
-+ Revision: 731515
-- fix for new packaging policy and version bump
-
-* Thu Jun 09 2011 Antoine Ginies <aginies@mandriva.com> 0.5-1
-+ Revision: 683340
-- fix provides
-- import python-netifaces
-
-
