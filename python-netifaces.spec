@@ -50,6 +50,8 @@ provided by the socket options is normally less complete.
 cp -a . %py2dir
 
 %build
+export CC=gcc
+export CXX=g++
 # -fno-lto is a workaround for setuptools brokenness -- it
 # passes -flto to the compiler but not to the linker, even if
 # it's mentioned in both CFLAGS and LDFLAGS.
