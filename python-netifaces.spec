@@ -58,10 +58,10 @@ export CXX=g++
 # Not too bad though since this module is only one source file
 # anyway. LTO doesn't make a difference here by definition.
 pushd %py2dir
-CFLAGS="%{optflags} -fno-lto" LDFLAGS="%{ldflags}" python2 setup.py build
+python2 setup.py build
 popd
 
-CFLAGS="%{optflags} -fno-lto" LDFLAGS="%{ldflags}" python setup.py build
+python setup.py build
 
 %install
 pushd %py2dir
