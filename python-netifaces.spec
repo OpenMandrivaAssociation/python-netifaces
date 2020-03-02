@@ -2,7 +2,7 @@
 
 Name:          python-%module
 Version:       0.10.9
-Release:       1
+Release:       2
 Provides:      %{module} = %{version}
 Requires:      python
 BuildRequires: pkgconfig(python3)
@@ -50,16 +50,11 @@ provided by the socket options is normally less complete.
 cp -a . %py2dir
 
 %build
-# -fno-lto is a workaround for setuptools brokenness -- it
-# passes -flto to the compiler but not to the linker, even if
-# it's mentioned in both CFLAGS and LDFLAGS.
-# Not too bad though since this module is only one source file
-# anyway. LTO doesn't make a difference here by definition.
 pushd %py2dir
-CFLAGS="%{optflags} -fno-lto" LDFLAGS="%{ldflags}" python2 setup.py build
+python2 setup.py build
 popd
 
-CFLAGS="%{optflags} -fno-lto" LDFLAGS="%{ldflags}" python setup.py build
+python setup.py build
 
 %install
 pushd %py2dir
