@@ -1,8 +1,9 @@
+%global debug_package %{nil}
 %define module netifaces
 
 Name:          python-%module
 Version:       0.10.9
-Release:       2
+Release:       3
 Provides:      %{module} = %{version}
 Requires:      python
 BuildRequires: pkgconfig(python3)
@@ -13,7 +14,7 @@ Group:         Development/Python
 License:       MIT
 URL:           http://alastairs-place.net/netifaces/
 Summary:       Portable network interface information
-Source0:       https://files.pythonhosted.org/packages/0d/18/fd6e9c71a35b67a73160ec80a49da63d1eed2d2055054cc2995714949132/netifaces-%{version}.tar.gz
+Source0:       https://files.pythonhosted.org/packages/source/n/netifaces/netifaces-%{version}.tar.gz
 
 %description
 netifaces provides a (hopefully portable-ish) way for Python programmers to
@@ -46,7 +47,7 @@ getifaddrs() or support the SIOCGIFxxx socket options, although the data
 provided by the socket options is normally less complete.
 
 %prep
-%setup -q -n %module-%{version}
+%autosetup -p1 -n %module-%{version}
 cp -a . %py2dir
 
 %build
