@@ -2,8 +2,8 @@
 %define module netifaces
 
 Name:          python-%module
-Version:       0.10.9
-Release:       3
+Version:       0.11.0
+Release:       1
 Provides:      %{module} = %{version}
 Requires:      python
 BuildRequires: pkgconfig(python3)
