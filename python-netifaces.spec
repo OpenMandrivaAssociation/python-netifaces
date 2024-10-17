@@ -12,7 +12,7 @@ BuildRequires: pkgconfig(python2)
 BuildRequires: python2-setuptools
 Group:         Development/Python
 License:       MIT
-URL:           http://alastairs-place.net/netifaces/
+URL:           https://alastairs-place.net/netifaces/
 Summary:       Portable network interface information
 Source0:       https://files.pythonhosted.org/packages/source/n/netifaces/netifaces-%{version}.tar.gz
 
