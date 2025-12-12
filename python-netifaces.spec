@@ -3,7 +3,7 @@
 
 Name:          python-%module
 Version:       0.11.0
-Release:       2
+Release:       3
 Provides:      %{module} = %{version}
 Requires:      python
 BuildRequires: pkgconfig(python3)
